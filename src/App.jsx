@@ -161,14 +161,14 @@ export default function App() {
 
     return (
         <div className="vjs-nv-main">
-            <div className="taskbar">
-                <div className="taskbar-links">
+            <div className="vjs-nv-taskbar">
+                <div className="vjs-nv-taskbar-links">
                     <button className={!popupVisibility.successors ? 'active' : ''} onClick={() => togglePopup('successors')}>Successors</button>
                     <button className={!popupVisibility.predecessors ? 'active' : ''} onClick={() => togglePopup('predecessors')}>Predecessors</button>
                     <button className={!popupVisibility.neighbours ? 'active' : ''} onClick={() => togglePopup('neighbours')}>Neighbours</button>
                     <button className={!popupVisibility.siblings ? 'active' : ''} onClick={() => togglePopup('siblings')}>Siblings</button>
                 </div>
-                <div className="taskbar-actions">
+                <div className="vjs-nv-taskbar-actions">
                     <button onClick={() => setAllPopups(false)}>Show All</button>
                     <button onClick={() => setAllPopups(true)}>Hide All</button>
                 </div>
