@@ -1,0 +1,219 @@
+:root {
+    --color-bg: #f4f7f9;
+    --color-node-bg: #ffffff;
+    --color-primary: #2c3e50;
+    --color-secondary: #34495e;
+    --color-accent: #1abc9c;
+    --color-formula: #e67e22;
+    --color-selected: #3498db;
+    --color-border: #dcdde1;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-connector: #7f8c8d;
+    
+    --color-popup: #ffffff;
+    --color-popup-border: #dcdde1;
+    --color-popup-header: #f8f9fa;
+}
+
+body * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-primary);
+}
+
+.vjs-nv-main {
+    width: 100%;
+    height: 800px;
+    background-color: var(--color-bg);
+    position: relative;
+}
+
+.popup {
+    width: 350px;
+    height: 300px;
+    background-color: var(--color-popup);
+    position: absolute;
+    z-index: 100;
+    border: 1px solid var(--color-popup-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    opacity: 0.945;
+}
+
+.popup#siblings {
+    top:50px;
+    left:10px;
+}
+
+.popup#neighbours {
+    top:50px;
+    right:10px;
+}
+
+.taskbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: var(--color-popup-header);
+    border-bottom: 1px solid var(--color-popup-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.taskbar button {
+    background: none;
+    border: 1px solid var(--color-popup-border);
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    transition: all 0.2s ease;
+}
+
+.taskbar button:hover {
+    background-color: var(--color-bg);
+}
+
+.taskbar button.active {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+.taskbar-actions button {
+    border-color: var(--color-secondary);
+}
+
+.popup#predecessors {
+    bottom:0;
+}
+
+.popup#successors {
+    bottom:0;
+    right:0
+}
+
+.popup .title {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-popup-header);
+    border-bottom: 1px solid var(--color-popup-border);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.popup .title .toggle-btn {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+}
+
+.popup .content {
+    background-color: white;
+    margin: 0.75rem;
+    flex-grow: 1;
+    border: 1px solid var(--color-popup-border);
+    border-radius: 6px;
+    position: relative;
+    box-shadow: inset 0 2px 4px var(--color-shadow);
+}
+
+.popup[data-hidden='true'] {
+    height: 46px;
+}
+
+.vjs-surface {
+    width: 100%;
+    height: 100%;
+}
+
+.vjs-node {
+    background: var(--color-node-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.vjs-node:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.vjs-connector-path {
+    stroke: var(--color-connector);
+    stroke-width: 2px;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.vjs-connector:hover .vjs-connector-path {
+    stroke: var(--color-accent);
+    stroke-width: 3px;
+}
+
+.base {
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formula {
+    min-width: 120px;
+}
+
+.formula .title {
+    background-color: var(--color-popup-header);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+.formula-value {
+    padding: 0.75rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: var(--color-formula);
+}
+
+/* Professional selected element style */
+.vjs-selected-element {
+    border-color: var(--color-selected) !important;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3), 0 4px 12px var(--color-shadow) !important;
+}
+
+/* We also keep the surface-level selection style if used */
+.vjs-surface-selected-element {
+    outline: none;
+}
+
+[data-c='R'] {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+[data-c='-'] {
+    color: #bdc3c7;
+    margin: 0 2px;
+}

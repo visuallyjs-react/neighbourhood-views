@@ -1,0 +1,6 @@
+@import "@visuallyjs/browser-ui/css/visuallyjs.css";
+@import "./neighbourhood-views.css";
+
+body * {
+    font-family:sans-serif;
+}
